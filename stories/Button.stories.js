@@ -67,29 +67,58 @@ export const ButtonGroups = () => (
 		<ButtonGroup>
 			<ButtonCollection />
 		</ButtonGroup>
-		<ButtonGroup>
-			<ButtonCollection outlined />
+		<ButtonGroup positive outlined>
+			<ButtonCollection />
 		</ButtonGroup>
-		<ButtonGroup>
-			<ButtonCollection solid />
+		<ButtonGroup horizontal solid>
+			<ButtonCollection />
 		</ButtonGroup>
 		<div style={{ display: 'flex' }}>
 			<ButtonGroup vertical>
 				<ButtonCollection />
 			</ButtonGroup>
-			<ButtonGroup vertical>
-				<ButtonCollection outlined />
+			<ButtonGroup vertical outlined>
+				<ButtonCollection />
 			</ButtonGroup>
-			<ButtonGroup vertical>
-				<ButtonCollection solid />
+			<ButtonGroup vertical solid>
+				<ButtonCollection />
 			</ButtonGroup>
 		</div>
 		<hr />
-		<ButtonGroup>
-			<Button solid>Options</Button>
-			<Button solid>
+		<ButtonGroup solid>
+			<Button>Options</Button>
+			<Button>
 				<Icon name="caret-down" />
 			</Button>
+		</ButtonGroup>
+		<hr />
+		<h3>Default</h3>
+		<ButtonGroup>
+			<Button>Default</Button>
+			<Button simple>Simple</Button>
+			<Button outlined>Outlined</Button>
+			<Button solid>Solid</Button>
+		</ButtonGroup>
+		<h3>Simple</h3>
+		<ButtonGroup simple>
+			<Button>Default</Button>
+			<Button simple>Simple</Button>
+			<Button outlined>Outlined</Button>
+			<Button solid>Solid</Button>
+		</ButtonGroup>
+		<h3>Outlined</h3>
+		<ButtonGroup outlined>
+			<Button>Default</Button>
+			<Button simple>Simple</Button>
+			<Button outlined>Outlined</Button>
+			<Button solid>Solid</Button>
+		</ButtonGroup>
+		<h3>Solid</h3>
+		<ButtonGroup solid>
+			<Button>Default</Button>
+			<Button simple>Simple</Button>
+			<Button outlined>Outlined</Button>
+			<Button solid>Solid</Button>
 		</ButtonGroup>
 	</div>
 )

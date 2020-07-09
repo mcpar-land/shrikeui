@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { StyledComponent } from 'styled-components'
 
 export type VariantSource = {
-	default: string
+	default?: string
 	variants: { [k: string]: string }
 }
 
@@ -21,10 +21,10 @@ export const getVariant = <T extends VariantSource>(
 			return k
 		}
 	}
-	return source.default
+	return source.default || ''
 }
 
-export const VariantComponent = <T extends VariantSource>(
+export const variantAttrs = <T extends VariantSource>(
 	sources: readonly T[]
 ) => {
 	return (props: any) => {

@@ -1,10 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { colorVariants } from '../types/color-variants'
-import { getVariant, VariantComponent, Variants } from '../util/variant-builder'
+import { getVariant, variantAttrs, Variants } from '../util/variant-builder'
+import specificity from '../util/specificity'
 
-const buttonVariants = {
-	default: 'simple',
+export const buttonVariants = {
 	variants: {
 		/** A simple button with a transparent background */
 		simple: 'simple',
@@ -31,8 +31,7 @@ const ButtonBase = styled.button<ButtonProps>`
 
 	--c-focus: ${p => p.theme.darkenedColor(getVariant(colorVariants, p), 0.75)};
 
-	color: ${p =>
-		p.solid ? p.theme.textColorForBg(c(p)) : p.theme.colors().text.primary};
+	color: ${p => p.theme.colors().text.primary};
 	border-radius: ${p => p.theme.borderRadius}px;
 	padding: ${p => p.theme.spacing(1.5)};
 	margin: ${p => p.theme.spacing(0.5)};
@@ -42,7 +41,7 @@ const ButtonBase = styled.button<ButtonProps>`
 	font-family: inherit;
 	font-weight: 700;
 
-	background: var(--c);
+	background: none;
 
 	&:active {
 		transition-duration: 0.025s;
@@ -52,35 +51,42 @@ const ButtonBase = styled.button<ButtonProps>`
 		outline: none;
 	}
 
-	&.simple {
+	&&.simple,
+	.simple & {
 		background: none;
-		/* margin: ${p => p.theme.spacing(1.25)};
-		padding: ${p => p.theme.spacing(0.75)}; */
 	}
 
-	&.simple:hover,
-	&.simple:focus,
-	&.outlined:hover,
-	&.outlined:focus {
+	&:hover,
+	&:focus,
+	&&.simple:hover,
+	&&.simple:focus,
+	&&.outlined:hover,
+	&&.outlined:focus,
+	.outlined &:hover,
+	.outlined &:focus {
 		background: var(--c-transp);
 	}
 
-	&.simple:active,
-	&.outlined:active {
+	&:active,
+	&&.outlined:active,
+	.outlined &:active {
 		background: var(--c-transp-click);
 	}
 
-	&.simple:focus,
-	&.outlined:focus {
+	&:focus,
+	&&.outlined:focus,
+	.outlined &:focus {
 		box-shadow: 0 0 0 2pt var(--c-transp-click);
 	}
 
-	&.outlined {
+	&&.outlined,
+	.outlined & {
 		background: none;
 		position: relative;
 	}
 
-	&.outlined:before {
+	&&.outlined:before,
+	.outlined &:before {
 		content: '';
 		box-sizing: border-box;
 		border: 1px solid var(--c);
@@ -94,31 +100,44 @@ const ButtonBase = styled.button<ButtonProps>`
 		transition-duration: inherit;
 	}
 
-	&.outlined:hover:before,
-	&.outlined:focus:before {
+	&&.outlined:hover:before,
+	&&.outlined:focus:before,
+	.outlined &:hover:before,
+	.outlined &:focus:before {
 		border-color: var(--c-darken);
 	}
 
-	&.solid:focus,
-	&.solid:hover {
+	.outlined &.solid:before,
+	.outlined &.simple:before {
+		border: none;
+	}
+
+	&&.solid,
+	.solid & {
+		color: ${p => p.theme.textColorForBg(c(p))};
+		background: var(--c);
+	}
+
+	&&.solid:focus,
+	&&.solid:hover,
+	.solid &:focus,
+	.solid &:hover {
 		background: var(--c-darken);
 	}
 
-	&.solid:focus {
+	&&.solid:focus,
+	.solid &:focus {
 		box-shadow: 0 0 0 2pt var(--c);
 	}
 
-	&.solid:active {
+	&&.solid:active,
+	.solid &:active {
 		background: var(--c-darken-click);
 	}
 `
 
-// const Button = styled(ButtonBase).attrs<ButtonProps>(props => ({
-// 	className: [getColorVariant(props), getButtonVariant(props)].join(' ').trim(),
-// }))``
-
 const v = [buttonVariants, colorVariants] as const
 
-const Button = styled(ButtonBase).attrs<ButtonProps>(VariantComponent(v))``
+const Button = styled(ButtonBase).attrs<ButtonProps>(variantAttrs(v))``
 
 export { Button }
