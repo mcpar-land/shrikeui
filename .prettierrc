@@ -1,0 +1,16 @@
+{
+	"semi": false,
+	"singleQuote": true,
+	"useTabs": true,
+	"tabWidth": 2,
+	"printWidth": 80,
+	"arrowParens": "avoid",
+	"overrides": [
+		{
+			"files": "src/types/icons.tsx",
+			"options": {
+				"quoteProps": "consistent"
+			}
+		}
+	]
+}
