@@ -8,16 +8,11 @@ on:
   push:
     branches: [ master ]
     paths:
-      - '**.js'
-      - '**.ts'
-      - '**.tsx'
-      - '**.json'
+      - 'src/**'
+      - '.storybook/**'
+      - 'stories/**'
+      - './package.json'
       - 'yarn.lock'
-      - '**.css'
-    paths-ignore:
-      - '.vscode/**'
-      - 'docs/**'
-      - 'scripts/**'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
