@@ -2,9 +2,17 @@ import React from 'react'
 import { addDecorator } from '@storybook/react'
 import { ThemeProvider, ShrikeStyle, defaultTheme } from '../src/index'
 import { useDarkMode } from 'storybook-dark-mode'
-import { withKnobs, color, number } from '@storybook/addon-knobs'
-
+import { withKnobs, color, number, text, array } from '@storybook/addon-knobs'
+import { PreviewWrapper } from './preview-wrapper'
 import { addParameters } from '@storybook/react'
+import { DocsPage, DocsContainer } from '@storybook/addon-docs'
+
+addParameters({
+	docs: {
+		container: DocsContainer,
+		page: DocsPage,
+	},
+})
 
 addDecorator(withKnobs)
 addParameters({
@@ -33,7 +41,7 @@ const colorThemeKnobs = (obj, group) => {
 }
 
 /**
- * @returns {DefaultTheme}
+ * @returns {import('styled-components').DefaultTheme}
  */
 const themeKnobs = () => ({
 	...defaultTheme,
@@ -46,14 +54,18 @@ const themeKnobs = () => ({
 	borderRadius: number('Border Radius', defaultTheme.borderRadius, {
 		min: 0,
 	}),
+	borderWidth: number('Border Width', defaultTheme.borderWidth, {
+		min: 0,
+	}),
+	typographyValues: {
+		...defaultTheme.typographyValues,
+		fontSize: number('Base Font Size', defaultTheme.typography.fontSize, {
+			min: 1,
+		}),
+		fontFamily: array('Base Font Family', defaultTheme.typography.fontFamily),
+	},
 })
 
-addDecorator(storyFn => (
-	<ThemeProvider
-		// theme={{ ...object('theme', { ...defaultTheme }), dark: useDarkMode() }}
-		theme={themeKnobs()}
-	>
-		<ShrikeStyle icons />
-		{storyFn()}
-	</ThemeProvider>
-))
+addDecorator(storyFn => {
+	return <PreviewWrapper theme={themeKnobs()}>{storyFn()}</PreviewWrapper>
+})

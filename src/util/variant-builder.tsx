@@ -18,7 +18,7 @@ export const getVariant = <T extends VariantSource>(
 ): VariantNames<T> => {
 	for (const k in source.variants) {
 		if (props[k] === true) {
-			return k
+			return source.variants[k]
 		}
 	}
 	return source.default || ''
@@ -30,7 +30,6 @@ export const variantAttrs = <T extends VariantSource>(
 	return (props: any) => {
 		for (const source of sources) {
 			let className = getVariant(source, props)
-			console.log(className)
 			props.className = ((props.className || '') + ' ' + className).trim()
 		}
 		return props

@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 import { colorVariants } from '../types/color-variants'
 import { getVariant, variantAttrs, Variants } from '../util/variant-builder'
 import specificity from '../util/specificity'
+import { typographyMixin } from '../theme'
 
 export const buttonVariants = {
 	variants: {
@@ -38,8 +39,8 @@ const ButtonBase = styled.button<ButtonProps>`
 	border: none;
 	cursor: pointer;
 	transition: 0.33s background;
-	font-family: inherit;
-	font-weight: 700;
+
+	${typographyMixin('button')}
 
 	background: none;
 
@@ -76,7 +77,7 @@ const ButtonBase = styled.button<ButtonProps>`
 	&:focus,
 	&&.outlined:focus,
 	.outlined &:focus {
-		box-shadow: 0 0 0 2pt var(--c-transp-click);
+		box-shadow: 0 0 0 ${p => p.theme.borderWidth}px var(--c-transp-click);
 	}
 
 	&&.outlined,
@@ -89,7 +90,7 @@ const ButtonBase = styled.button<ButtonProps>`
 	.outlined &:before {
 		content: '';
 		box-sizing: border-box;
-		border: 1px solid var(--c);
+		border: ${p => p.theme.borderWidth}px solid var(--c);
 		position: absolute;
 		border-radius: inherit;
 		top: 0px;

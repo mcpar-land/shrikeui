@@ -1,5 +1,5 @@
 import React from 'react'
-import { action } from '@storybook/addon-actions'
+import { action, actions } from '@storybook/addon-actions'
 import { Button, ButtonGroup, Icon } from '../src/index'
 
 export default {
@@ -7,24 +7,26 @@ export default {
 	component: Button,
 }
 
+const e = actions('onClick', 'onFocus')
+
 const ButtonCollection = ({ outlined, solid }) => (
 	<>
-		<Button outlined={outlined} solid={solid}>
+		<Button {...e} outlined={outlined} solid={solid}>
 			Default
 		</Button>
-		<Button outlined={outlined} solid={solid} basic>
+		<Button {...e} outlined={outlined} solid={solid} basic>
 			Basic
 		</Button>
-		<Button outlined={outlined} solid={solid} primary>
+		<Button {...e} outlined={outlined} solid={solid} primary>
 			Primary
 		</Button>
-		<Button outlined={outlined} solid={solid} secondary>
+		<Button {...e} outlined={outlined} solid={solid} secondary>
 			Secondary
 		</Button>
-		<Button outlined={outlined} solid={solid} positive>
+		<Button {...e} outlined={outlined} solid={solid} positive>
 			Positive
 		</Button>
-		<Button outlined={outlined} solid={solid} negative>
+		<Button {...e} outlined={outlined} solid={solid} negative>
 			Negative
 		</Button>
 	</>
@@ -94,31 +96,55 @@ export const ButtonGroups = () => (
 		<hr />
 		<h3>Default</h3>
 		<ButtonGroup>
-			<Button>Default</Button>
-			<Button simple>Simple</Button>
-			<Button outlined>Outlined</Button>
-			<Button solid>Solid</Button>
+			<Button {...e}>Default</Button>
+			<Button {...e} simple>
+				Simple
+			</Button>
+			<Button {...e} outlined>
+				Outlined
+			</Button>
+			<Button {...e} solid>
+				Solid
+			</Button>
 		</ButtonGroup>
 		<h3>Simple</h3>
 		<ButtonGroup simple>
-			<Button>Default</Button>
-			<Button simple>Simple</Button>
-			<Button outlined>Outlined</Button>
-			<Button solid>Solid</Button>
+			<Button {...e}>Default</Button>
+			<Button {...e} simple>
+				Simple
+			</Button>
+			<Button {...e} outlined>
+				Outlined
+			</Button>
+			<Button {...e} solid>
+				Solid
+			</Button>
 		</ButtonGroup>
 		<h3>Outlined</h3>
 		<ButtonGroup outlined>
-			<Button>Default</Button>
-			<Button simple>Simple</Button>
-			<Button outlined>Outlined</Button>
-			<Button solid>Solid</Button>
+			<Button {...e}>Default</Button>
+			<Button {...e} simple>
+				Simple
+			</Button>
+			<Button {...e} outlined>
+				Outlined
+			</Button>
+			<Button {...e} solid>
+				Solid
+			</Button>
 		</ButtonGroup>
 		<h3>Solid</h3>
 		<ButtonGroup solid>
-			<Button>Default</Button>
-			<Button simple>Simple</Button>
-			<Button outlined>Outlined</Button>
-			<Button solid>Solid</Button>
+			<Button {...e}>Default</Button>
+			<Button {...e} simple>
+				Simple
+			</Button>
+			<Button {...e} outlined>
+				Outlined
+			</Button>
+			<Button {...e} solid>
+				Solid
+			</Button>
 		</ButtonGroup>
 	</div>
 )

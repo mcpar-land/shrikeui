@@ -5,6 +5,14 @@ module.exports = {
 		'@storybook/addon-links',
 		'@storybook/addon-knobs',
 		'@storybook/preset-typescript',
+		{
+			name: '@storybook/addon-docs',
+			options: {
+				configureJSX: true,
+				babelOptions: {},
+				sourceLoaderOptions: null,
+			},
+		},
 		'storybook-dark-mode/register',
 	],
 }
