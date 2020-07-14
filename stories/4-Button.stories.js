@@ -94,57 +94,128 @@ export const ButtonGroups = () => (
 			</Button>
 		</ButtonGroup>
 		<hr />
-		<h3>Default</h3>
-		<ButtonGroup>
-			<Button {...e}>Default</Button>
-			<Button {...e} simple>
-				Simple
-			</Button>
-			<Button {...e} outlined>
-				Outlined
-			</Button>
-			<Button {...e} solid>
-				Solid
-			</Button>
-		</ButtonGroup>
-		<h3>Simple</h3>
-		<ButtonGroup simple>
-			<Button {...e}>Default</Button>
-			<Button {...e} simple>
-				Simple
-			</Button>
-			<Button {...e} outlined>
-				Outlined
-			</Button>
-			<Button {...e} solid>
-				Solid
-			</Button>
-		</ButtonGroup>
-		<h3>Outlined</h3>
-		<ButtonGroup outlined>
-			<Button {...e}>Default</Button>
-			<Button {...e} simple>
-				Simple
-			</Button>
-			<Button {...e} outlined>
-				Outlined
-			</Button>
-			<Button {...e} solid>
-				Solid
-			</Button>
-		</ButtonGroup>
-		<h3>Solid</h3>
-		<ButtonGroup solid>
-			<Button {...e}>Default</Button>
-			<Button {...e} simple>
-				Simple
-			</Button>
-			<Button {...e} outlined>
-				Outlined
-			</Button>
-			<Button {...e} solid>
-				Solid
-			</Button>
-		</ButtonGroup>
+		<div style={{ display: 'flex' }}>
+			<div>
+				<h3>Default</h3>
+				<ButtonGroup>
+					<Button {...e}>Default</Button>
+					<Button {...e} simple>
+						Simple
+					</Button>
+					<Button {...e} outlined>
+						Outlined
+					</Button>
+					<Button {...e} solid>
+						Solid
+					</Button>
+				</ButtonGroup>
+				<h3>Simple</h3>
+				<ButtonGroup simple>
+					<Button {...e}>Default</Button>
+					<Button {...e} simple>
+						Simple
+					</Button>
+					<Button {...e} outlined>
+						Outlined
+					</Button>
+					<Button {...e} solid>
+						Solid
+					</Button>
+				</ButtonGroup>
+				<h3>Outlined</h3>
+				<ButtonGroup outlined>
+					<Button {...e}>Default</Button>
+					<Button {...e} simple>
+						Simple
+					</Button>
+					<Button {...e} outlined>
+						Outlined
+					</Button>
+					<Button {...e} solid>
+						Solid
+					</Button>
+				</ButtonGroup>
+				<h3>Solid</h3>
+				<ButtonGroup solid>
+					<Button {...e}>Default</Button>
+					<Button {...e} simple>
+						Simple
+					</Button>
+					<Button {...e} outlined>
+						Outlined
+					</Button>
+					<Button {...e} solid>
+						Solid
+					</Button>
+				</ButtonGroup>
+			</div>
+			<div>
+				<h3>Basic</h3>
+				<ButtonGroup basic>
+					<Button {...e}>Default</Button>
+					<Button {...e} simple>
+						Simple
+					</Button>
+					<Button {...e} outlined>
+						Outlined
+					</Button>
+					<Button {...e} solid>
+						Solid
+					</Button>
+				</ButtonGroup>
+				<h3>Primary</h3>
+				<ButtonGroup primary>
+					<Button {...e}>Default</Button>
+					<Button {...e} simple>
+						Simple
+					</Button>
+					<Button {...e} outlined>
+						Outlined
+					</Button>
+					<Button {...e} solid>
+						Solid
+					</Button>
+				</ButtonGroup>
+				<h3>Secondary</h3>
+				<ButtonGroup secondary>
+					<Button {...e}>Default</Button>
+					<Button {...e} simple>
+						Simple
+					</Button>
+					<Button {...e} outlined>
+						Outlined
+					</Button>
+					<Button {...e} solid>
+						Solid
+					</Button>
+				</ButtonGroup>
+				<h3>Positive</h3>
+				<ButtonGroup positive>
+					<Button {...e}>Default</Button>
+					<Button {...e} simple>
+						Simple
+					</Button>
+					<Button {...e} outlined>
+						Outlined
+					</Button>
+					<Button {...e} solid>
+						Solid
+					</Button>
+				</ButtonGroup>
+				<h3>Negative</h3>
+				<ButtonGroup negative>
+					<Button {...e}>Default</Button>
+					<Button {...e} simple>
+						Simple
+					</Button>
+					<Button {...e} outlined>
+						Outlined
+					</Button>
+					<Button {...e} solid>
+						Solid
+					</Button>
+				</ButtonGroup>
+			</div>
+		</div>
 	</div>
 )

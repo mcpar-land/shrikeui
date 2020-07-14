@@ -5,7 +5,8 @@ import { usePopper } from 'react-popper'
 const MenuCore: React.FC<{
 	className: string
 	anchor?: React.ReactElement
-}> = ({ anchor, className, children }) => {
+	arrow: boolean
+}> = ({ anchor, className, children, arrow = false }) => {
 	const [anchorRef, setAnchorRef] = useState<any>(null)
 	const [popperRef, setPopperRef] = useState<any>(null)
 	const [arrowRef, setArrowRef] = useState<any>(null)
@@ -29,7 +30,7 @@ const MenuCore: React.FC<{
 				{...attributes.popper}
 			>
 				{children}
-				<MenuArrow ref={setArrowRef} style={styles.arrow} />
+				{arrow && <MenuArrow ref={setArrowRef} style={styles.arrow} />}
 			</MenuBase>
 		</>
 	) : (
